@@ -10,8 +10,8 @@ interface List {
 }
 export default class FulllList implements List {
   _list: ListItem[];
-  constructor(list: ListItem[]) {
-    this._list = list;
+  constructor() {
+    this._list = [];
   }
   get list() {
     return this._list;
