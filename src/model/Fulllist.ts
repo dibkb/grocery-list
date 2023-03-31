@@ -1,6 +1,7 @@
 import ListItem from "./ListItem";
 interface List {
   _list: ListItem[];
+  get list(): ListItem[];
   load(): void;
   save(): void;
   clearList(): void;
@@ -11,6 +12,9 @@ export default class FulllList implements List {
   _list: ListItem[];
   constructor(list: ListItem[]) {
     this._list = list;
+  }
+  get list() {
+    return this._list;
   }
   load(): void {
     const storedList: string | null = localStorage.getItem("MY_LIST");
