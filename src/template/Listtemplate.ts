@@ -16,8 +16,13 @@ export default class ListTemplate implements DOMList {
     this.clear();
     fullList.list.forEach((item) => {
       const li = document.createElement("li") as HTMLLIElement;
-      li.textContent = item._item;
-      this.ul.append(li);
+      const pOne = document.createElement("p") as HTMLParagraphElement;
+      const pTwo = document.createElement("p") as HTMLParagraphElement;
+      pOne.textContent = item._item;
+      pTwo.textContent = item._quantity.toString();
+      li.appendChild(pOne);
+      li.appendChild(pTwo);
+      this.ul.appendChild(li);
     });
   }
 }
