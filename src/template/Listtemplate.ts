@@ -19,13 +19,17 @@ export default class ListTemplate implements DOMList {
     button.setAttribute("id", "delete");
     return button;
   }
-  render(fullList: FulllList) {
+  render(fullList: FulllList): void {
     this.clear();
     fullList.list.forEach((item) => {
       const li = document.createElement("li") as HTMLLIElement;
       const pOne = document.createElement("p") as HTMLParagraphElement;
       const pTwo = document.createElement("p") as HTMLParagraphElement;
       const btn = this.createButton();
+      btn.addEventListener("click", () => {
+        fullList.removeItem(item._id);
+        this.render(fullList);
+      });
       pOne.textContent = item._item;
       pTwo.textContent = item._quantity.toString();
       li.appendChild(pOne);

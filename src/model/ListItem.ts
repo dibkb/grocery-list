@@ -9,6 +9,9 @@ export default class ListItem {
     this._quantity = quantity;
     this._checked = checked;
   }
+  changeCheck() {
+    this._checked = !this._checked;
+  }
   incrementQuantity(val: number) {
     this._quantity += val;
   }

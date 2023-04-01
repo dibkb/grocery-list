@@ -7,8 +7,8 @@ function initApp() {
   const form = document.getElementById("form") as HTMLFormElement;
   form.addEventListener("submit", function (ev) {
     ev.preventDefault();
-    const item: string = this.elements[0];
-    const quantity: number = this.elements[1];
+    const item = this.elements[0] as HTMLInputElement;
+    const quantity = this.elements[1] as HTMLInputElement;
     const itemId: number = fullList.list.length + 1;
     const newItem = new ListItem(
       itemId.toString(),
